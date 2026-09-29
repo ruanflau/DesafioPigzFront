@@ -1,0 +1,83 @@
+:root {
+  /* Cores estimadas a partir dos prints: confira no painel de specs do XD */
+  --orange-1: #ff8a1f;
+  --orange-2: #ff5f1f;
+  --orange-grad: linear-gradient(135deg, var(--orange-1), var(--orange-2));
+  --text: #333333;
+  --text-soft: #555555;
+  --card: #fafafa;
+  --line: #e6e6e6;
+  --input-border: #c9c9c9;
+  --placeholder: #b5b5b5;
+  --radius-card: 44px;
+  --radius-input: 22px;
+  --radius-pill: 999px;
+  --font: 'Poppins', system-ui, sans-serif;
+  --page-max: 430px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; }
+
+/* Coluna mobile centralizada (no desktop vira uma "moldura" de celular) */
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--orange-grad);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 12px 20px -8px rgba(255, 95, 31, 0.55);
+}
+
+.btn--small {
+  display: inline-block;
+  width: auto;
+  padding: 8px 22px;
+  font-size: 13px;
+}
+
+/* Espaço reservado para os SVGs que você vai inserir */
+.placeholder {
+  display: grid;
+  place-items: center;
+  border: 2px dashed rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  padding: 4px;
+}
