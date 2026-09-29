@@ -1,0 +1,32 @@
+.pigzdido {
+  padding: 24px 0 40px;
+}
+.pigzdido__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+.pigzdido__card {
+  width: 180px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--card);
+  border-radius: 36px;
+  text-align: center;
+  padding: 12px;
+}
+.pigzdido__card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.pigzdido__card p {
+  font-size: 11px;
+  font-weight: 300;
+}
