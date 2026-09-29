@@ -26,7 +26,7 @@ export default function Hero() {
             Marketplace e deixar sua loja pronta para iniciar as vendas.
           </p>
         </div>
-        <img src={burguer_2} alt="" className="hero__burger" width={110} />
+        <img src={burguer_2} alt="" className="hero__burger" width={220} />
       </div>
 
       <form className="card-form" onSubmit={next}>
