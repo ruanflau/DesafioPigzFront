@@ -12,13 +12,26 @@
   --radius-card: 44px;
   --radius-input: 22px;
   --radius-pill: 999px;
-  --font: 'Poppins', system-ui, sans-serif;
+  --font: "Poppins", system-ui, sans-serif;
   --page-max: 430px;
+
+  /* Moldura de celular no desktop (base: tela 1920x1080).
+     Altura = 94% da tela, até 1000px; largura na proporção 9:16 (562px em 1080p). */
+  --frame-h: min(94vh, 1000px);
+  --frame-w: calc(var(--frame-h) * 9 / 16);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html, body { margin: 0; padding: 0; }
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: var(--font);
@@ -27,18 +40,67 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, p { margin: 0; }
-ul { list-style: none; margin: 0; padding: 0; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: 0; }
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
 
-/* Coluna mobile centralizada (no desktop vira uma "moldura" de celular) */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+/* Celular: coluna que ocupa a tela (máx. 430px) */
 .page {
   max-width: var(--page-max);
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  overflow: hidden;
+  /* clip (e não hidden) para o header sticky continuar funcionando */
+  overflow-x: clip;
+}
+
+/* Desktop (incluindo 1920x1080): página dentro de uma moldura 9:16 com rolagem interna */
+@media (min-width: 768px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #e9e9e9;
+  }
+
+  .page {
+    width: var(--frame-w);
+    max-width: none;
+    height: var(--frame-h);
+    min-height: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 32px;
+    box-shadow:
+      0 0 0 10px #1c1c1c,
+      0 24px 60px rgba(0, 0, 0, 0.35);
+    scrollbar-width: none;
+  }
+
+  .page::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .section-title {
