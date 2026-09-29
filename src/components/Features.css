@@ -1,11 +1,67 @@
-.features { padding: 0 0 40px; }
-.features__lead { margin: 16px 44px 0; text-align: center; font-size: 13px; line-height: 1.5; }
+.features {
+  padding: 0 0 40px;
+}
 
-.tabs { display: flex; gap: 8px; margin: 28px 20px 0; }
-.tabs__bar { flex: 1; height: 3px; padding: 0; border-radius: 3px; background: var(--line); }
-.tabs__bar.is-active { background: var(--orange-2); }
+.features__lead {
+  margin: 16px 44px 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+}
 
-.features__name { margin-top: 20px; text-align: center; font-size: 17px; font-weight: 600; }
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 28px 20px 0;
+}
+
+.tabs__bar {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  padding: 0;
+  border-radius: 3px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+/* Preenchimento laranja: só aparece na aba ativa e enche em 5s */
+.tabs__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--orange-2);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.tabs__bar.is-active .tabs__fill {
+  animation-name: tab-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes tab-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabs__bar.is-active .tabs__fill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
+
+.features__name {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+}
 
 .slide {
   margin: 20px 20px 0;
@@ -14,8 +70,24 @@
   border-radius: 40px;
   background: var(--orange-grad);
   color: #fff;
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
 }
-.slide p { font-size: 12px; line-height: 1.45; font-weight: 300; text-align: center; }
-.slide__img { margin: 16px 0 0; align-self: center; width: 100%; }
+
+.slide p {
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 300;
+  text-align: center;
+}
+
+.slide__img {
+  display: block;
+  width: 100%;
+  max-height: 190px;
+  margin-top: 16px;
+  object-fit: contain;
+  object-position: bottom;
+}
