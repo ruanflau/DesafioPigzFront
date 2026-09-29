@@ -1,0 +1,82 @@
+.hero {
+  background: var(--orange-grad);
+  color: #fff;
+  padding: 24px 20px 0;
+}
+
+.hero__top {
+  position: relative;
+}
+
+.hero__copy h1 {
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 600;
+  max-width: 260px;
+}
+
+.hero__copy p {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.hero__burger {
+  position: absolute;
+  top: -20px;
+  right: -14px;
+  height: auto;
+}
+
+.card-form {
+  margin-top: 32px;
+  background: #fff;
+  color: var(--text);
+  border-radius: 32px;
+  padding: 24px 20px 20px;
+}
+
+.card-form h2 {
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.card-form__sub {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.card-form h2 + .field {
+  margin-top: 20px;
+}
+
+.card-form__legal {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--text-soft);
+  margin: 4px 0 20px;
+}
+
+.card-form .row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn--spaced {
+  margin-top: 48px;
+}
+
+/* logo grande: metade sobre o laranja, metade sobre o branco */
+.hero__logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  transform: translateY(45px);
+}
+
+.hero + .pigzdido {
+  padding-top: 70px;
+}
