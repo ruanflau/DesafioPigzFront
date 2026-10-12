@@ -9,6 +9,10 @@ import youtube from "../assets/youtube-with-circle.svg";
 import orangeLabs from "../assets/logo-orange-horizontal-branco.svg";
 import "./Footer.css";
 
+const APP_STORE_URL = "https://apps.apple.com/us/app/pigz/id1526557835";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=app.pigz.mart&hl=pt-BR&pli=1";
+
 const SOCIALS = [
   { name: "LinkedIn", icon: linkedin },
   { name: "Instagram", icon: instagram },
@@ -24,10 +28,10 @@ export default function Footer() {
 
       <h4>Baixe o APP</h4>
       <div className="footer__stores">
-        <a href="#">
+        <a href={APP_STORE_URL} target="_blank" rel="noreferrer">
           <img src={appStore} alt="Baixar na App Store" />
         </a>
-        <a href="#">
+        <a href={PLAY_STORE_URL} target="_blank" rel="noreferrer">
           <img src={googlePlay} alt="Disponível no Google Play" />
         </a>
       </div>
