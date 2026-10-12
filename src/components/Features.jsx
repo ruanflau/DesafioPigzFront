@@ -5,6 +5,7 @@ import slideImg3x from "../assets/Grupo de máscara 2417@3x.png";
 import "./Features.css";
 
 const AUTOPLAY_MS = 5000;
+const FADE_MS = 500;
 
 // Mesma imagem em todos os slides por enquanto; troque o campo `image` quando tiver as outras
 const IMAGE = {
@@ -36,8 +37,12 @@ const SLIDES = [
 ];
 
 export default function Features() {
+  // active: aba selecionada (barra de progresso e autoplay)
+  // shown: slide que está visível (muda só depois do fade out)
   const [active, setActive] = useState(0);
-  const slide = SLIDES[active];
+  const [shown, setShown] = useState(0);
+  const [fading, setFading] = useState(false);
+  const slide = SLIDES[shown];
 
   // Avança a cada 5s. Como depende de `active`, o tempo reinicia quando a pessoa clica numa aba.
   useEffect(() => {
@@ -46,6 +51,17 @@ export default function Features() {
     }, AUTOPLAY_MS);
     return () => clearTimeout(id);
   }, [active]);
+
+  // Fade out -> troca o conteúdo -> fade in
+  useEffect(() => {
+    if (active === shown) return;
+    setFading(true);
+    const id = setTimeout(() => {
+      setShown(active);
+      setFading(false);
+    }, FADE_MS);
+    return () => clearTimeout(id);
+  }, [active, shown]);
 
   return (
     <section className="features">
@@ -75,17 +91,23 @@ export default function Features() {
         ))}
       </div>
 
-      <h3 className="features__name">{slide.title}</h3>
+      <div
+        className={`features__content ${fading ? "is-fading" : ""}`}
+        style={{ transitionDuration: `${FADE_MS}ms` }}
+        aria-live="polite"
+      >
+        <h3 className="features__name">{slide.title}</h3>
 
-      <article className="slide">
-        <p>{slide.text}</p>
-        <img
-          className="slide__img"
-          src={slide.image.src}
-          srcSet={slide.image.srcSet}
-          alt=""
-        />
-      </article>
+        <article className="slide">
+          <p>{slide.text}</p>
+          <img
+            className="slide__img"
+            src={slide.image.src}
+            srcSet={slide.image.srcSet}
+            alt=""
+          />
+        </article>
+      </div>
     </section>
   );
 }

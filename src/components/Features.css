@@ -1,4 +1,6 @@
 .features {
+  /* Opacidade mínima do fade*/
+  --fade-min: 0.5;
   padding: 0 0 40px;
 }
 
@@ -49,10 +51,25 @@
   }
 }
 
+/* Fade in / fade out do título e do card laranja */
+.features__content {
+  opacity: 1;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+}
+
+.features__content.is-fading {
+  opacity: var(--fade-min);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tabs__bar.is-active .tabs__fill {
     animation: none;
     transform: scaleX(1);
+  }
+
+  .features__content {
+    transition: none;
   }
 }
 
