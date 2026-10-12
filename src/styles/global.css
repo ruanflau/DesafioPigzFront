@@ -1,14 +1,22 @@
 :root {
-  /* Cores estimadas a partir dos prints: confira no painel de specs do XD */
-  --orange-1: #ff8a1f;
-  --orange-2: #ff5f1f;
+  /* Paleta do XD (valores estimados a partir do print; confira o hex exato no painel Colors) */
+  --white: #ffffff;
+  --black: #000000;
+
+  --orange-1: #ff881f; /* laranja claro (início do degradê) */
+  --orange-2: #fa641e; /* laranja forte (fim do degradê, barras, foco) */
   --orange-grad: linear-gradient(135deg, var(--orange-1), var(--orange-2));
-  --text: #333333;
-  --text-soft: #555555;
-  --card: #fafafa;
-  --line: #e6e6e6;
-  --input-border: #c9c9c9;
-  --placeholder: #b5b5b5;
+  --peach: #ffccb8; /* laranja bem claro (detalhes dos ícones) */
+
+  --text: #333333; /* títulos e texto principal */
+  --text-soft: #666666; /* texto secundário */
+  --gray-icon: #999999; /* ícones e detalhes em cinza médio */
+  --placeholder: #aaaaaa; /* texto de exemplo dentro dos campos */
+  --input-border: #c8c8c8; /* borda dos campos */
+  --line: #ebebeb; /* divisórias e barras inativas */
+  --gray-bg: #eeeeee; /* fundo do DDI do telefone */
+  --card: #fafafa; /* fundo dos cards e do rodapé */
+
   --radius-card: 44px;
   --radius-input: 22px;
   --radius-pill: 999px;
@@ -68,7 +76,7 @@ button {
 .page {
   max-width: var(--page-max);
   margin: 0 auto;
-  background: #fff;
+  background: var(--white);
   min-height: 100vh;
   /* clip (e não hidden) para o header sticky continuar funcionando */
   overflow-x: clip;
@@ -117,11 +125,11 @@ button {
   padding: 14px 20px;
   border-radius: var(--radius-pill);
   background: var(--orange-grad);
-  color: #fff;
+  color: var(--white);
   font-size: 15px;
   font-weight: 500;
   text-align: center;
-  box-shadow: 0 12px 20px -8px rgba(255, 95, 31, 0.55);
+  box-shadow: 0 12px 20px -8px rgba(255, 99, 32, 0.55);
 }
 
 .btn--small {
