@@ -24,13 +24,6 @@ npm run dev
 
 O Vite mostra o endereço no terminal (normalmente `http://localhost:5173`). Para ver como no celular, abra o DevTools (F12) e ative o modo de dispositivo.
 
-Outros comandos:
-
-```bash
-npm run build     # gera a versão de produção em dist/
-npm run preview   # serve a versão de produção localmente
-```
-
 ## O que foi implementado
 
 - **Header** fixo no topo, com logo e botão "Já sou parceiro".
@@ -73,7 +66,7 @@ As cores, os raios de borda e a fonte ficam como variáveis CSS no `:root` do `g
 
 ## Limitações e próximos passos
 
-- O formulário ainda não envia dados: não há integração com API (fora do escopo do desafio) nem validação dos campos.
+- O formulário ainda não envia dados: não há integração com API nem validação dos campos.
 - Os campos Estado, Cidade e Tipo de loja ainda não têm opções.
 - Os quatro slides do carrossel usam a mesma imagem, por falta dos demais assets.
 - As cores foram aproximadas a partir das amostras do XD e podem ter pequenas diferenças em relação aos valores exatos.
