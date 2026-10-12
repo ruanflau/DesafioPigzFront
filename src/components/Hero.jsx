@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import burguer_2 from "../assets/burguer_2.png";
 import logoGrande from "../assets/Grupo 3535.svg";
 import { Field, PhoneField, SelectField } from "./Field";
@@ -6,12 +6,28 @@ import "./Hero.css";
 
 // Ordem do fluxo: contato -> endereço -> loja
 const STEPS = ["contato", "endereco", "loja"];
+const AUTOPLAY_MS = 5000;
+
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export default function Hero() {
   const [step, setStep] = useState(0);
+  // O rodízio automático para de vez quando a pessoa começa a preencher
+  const [auto, setAuto] = useState(() => !prefersReducedMotion());
+
+  useEffect(() => {
+    if (!auto) return;
+    const id = setTimeout(() => {
+      setStep((current) => (current + 1) % STEPS.length);
+    }, AUTOPLAY_MS);
+    return () => clearTimeout(id);
+  }, [auto, step]);
 
   const next = (e) => {
     e.preventDefault();
+    setAuto(false);
     if (step < STEPS.length - 1) setStep(step + 1);
     else alert("Cadastro concluído!"); // trocar pela chamada de API depois
   };
@@ -19,17 +35,22 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero__top">
-        <div className="hero__copy">
+        <div className="hero__head">
           <h1>Pigz: tudo que você precisa pra vender ainda mais!</h1>
-          <p>
-            Temos uma equipe ansiosa para cadastrar seus produtos no Pigz
-            Marketplace e deixar sua loja pronta para iniciar as vendas.
-          </p>
+          <img src={burguer_2} alt="" className="hero__burger" />
         </div>
-        <img src={burguer_2} alt="" className="hero__burger" width={220} />
+        <p className="hero__text">
+          Temos uma equipe ansiosa para cadastrar seus produtos no Pigz
+          Marketplace e deixar sua loja pronta para iniciar as vendas.
+        </p>
       </div>
 
-      <form className="card-form" onSubmit={next}>
+      <form
+        className="card-form"
+        onSubmit={next}
+        onFocus={() => setAuto(false)}
+        onPointerDown={() => setAuto(false)}
+      >
         {STEPS[step] === "contato" && (
           <>
             <h2>Quero vender no Pigz</h2>

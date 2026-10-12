@@ -4,29 +4,37 @@
   padding: 24px 20px 0;
 }
 
-.hero__top {
-  position: relative;
+/* Título + hambúrguer lado a lado, centralizados na vertical */
+.hero__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.hero__copy h1 {
-  font-size: 40px;
+.hero__head h1 {
+  flex: 1;
+  min-width: 0;
+  font-size: 48px;
   line-height: 1.15;
   font-weight: 600;
-  max-width: 260px;
-}
-
-.hero__copy p {
-  margin-top: 18px;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 300;
 }
 
 .hero__burger {
-  position: absolute;
-  top: -20px;
-  right: -14px;
+  flex: none;
+  width: 800%;
+  max-width: 250px;
   height: auto;
+  object-fit: contain;
+  /* deixa o hambúrguer passar um pouco da borda direita, como no design */
+  margin-right: -115px;
+  margin-left: -12px;
+}
+
+.hero__text {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 300;
 }
 
 .card-form {
@@ -35,6 +43,8 @@
   color: var(--text);
   border-radius: 32px;
   padding: 24px 20px 20px;
+  /* altura mínima para o resto da página não "pular" quando o passo troca; ajuste se precisar */
+  min-height: 440px;
 }
 
 .card-form h2 {
