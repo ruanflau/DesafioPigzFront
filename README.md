@@ -16,7 +16,7 @@ O foco é a versão **mobile**. No desktop, a página aparece dentro de uma mold
 Pré-requisito: [Node.js](https://nodejs.org/) 18 ou superior.
 
 ```bash
-git clone https://github.com/SEU_USUARIO/DesafioPigzFront.git
+git clone https://github.com/ruanflau/DesafioPigzFront.git
 cd DesafioPigzFront
 npm install
 npm run dev
@@ -34,7 +34,7 @@ O Vite mostra o endereço no terminal (normalmente `http://localhost:5173`). Par
 - **"Você tem um novo Pigzdido!"**: cards com os benefícios.
 - **Funcionalidades** ("Tudo que você precisa por apenas R$199/mês"): carrossel com troca automática a cada 5 segundos, barra de progresso por aba, troca manual ao tocar na aba e transição com fade.
 - **Suporte** e **planos** (Pigz e Pagamento On-line), com o contato via WhatsApp.
-- **Footer** com links, selos das lojas de aplicativo, redes sociais e informações legais.
+- **Footer** com links, selos das lojas de aplicativo (App Store e Google Play), redes sociais e informações legais.
 
 ## Estrutura
 
@@ -64,9 +64,27 @@ As cores, os raios de borda e a fonte ficam como variáveis CSS no `:root` do `g
 - **Acessibilidade**: campos com `label` associado, abas com `role="tab"` e `aria-selected`, e quem ativa "reduzir movimento" no sistema vê o carrossel sem animações.
 - **Commits semânticos**: o histórico segue o padrão `tipo(escopo): descrição` (`feat`, `style`, `fix`, `chore`, `docs`), com commits pequenos por componente.
 
+## Uso de IA no desenvolvimento
+
+Usei o Claude como apoio durante o desafio, principalmente para cobrir lacunas nas competências exigidas e acelerar o aprendizado.
+
+**Onde o Claude ajudou**
+
+- **Tirar dúvidas:** como estruturar um projeto React com Vite, como importar assets (`import` de SVG e PNG), como funcionam `useState` e `useEffect`, e como organizar os componentes e o CSS.
+- **Corrigir erros:** caminhos de import errados (`../assets/`), arquivo `vite.config.js` sem exportar a configuração e JSX com trechos soltos.
+- **Ajustes de layout:** posição e tamanho do hambúrguer no hero, moldura 9:16 no desktop, tamanhos de texto e paleta de cores a partir das amostras do XD.
+- **Comportamentos:** carrossel com troca automática a cada 5 segundos, barra de progresso e transição em fade.
+- **Git:** modelo para commits semânticos e granulares, `commit --amend` para corrigir uma mensagem e `pull --rebase` para resolver um push recusado.
+- **Documentação:** rascunho deste README.
+
+**Como usei**
+
+- O Claude me explicou o código passo a passo, como uma receita de bolo, e apontou a causa de cada erro conforme eu seguia. Ele também forneceu trechos e arquivos completos, que eu li, adaptei e apliquei no projeto.
+- As decisões de escopo, os assets, os textos finais e os commits foram meus, e todo o código foi testado localmente antes de ser enviado.
+
 ## Limitações e próximos passos
 
-- O formulário ainda não envia dados: não há integração com API nem validação dos campos.
+- O formulário ainda não envia dados: não há integração com API (fora do escopo do desafio) nem validação dos campos.
 - Os campos Estado, Cidade e Tipo de loja ainda não têm opções.
 - Os quatro slides do carrossel usam a mesma imagem, por falta dos demais assets.
-- As cores foram aproximadas a partir das amostras do XD e podem ter pequenas diferenças em relação aos valores exatos.
+- Algumas cores foram tiradas das amostras da paleta do XD, e não dos códigos exatos, porque o código lido indicava uma cor diferente quando aplicado. Pode haver pequenas diferenças em relação ao layout.
